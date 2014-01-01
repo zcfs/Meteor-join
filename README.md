@@ -1,7 +1,7 @@
 #Join
 This package is built for general usage, but main target is to solve some
 features in collectionFS.
-Basicly it lets you join documents cross collections. [api](api.js)
+Basicly it lets you join documents cross collections. [api](api.md)
 
 ```js
 Example:
