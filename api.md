@@ -47,7 +47,7 @@ Required if first parametre is `id`
 > when the data is stored or transported. The reference contains
 > `{ _id, collectionName }`
 
-> ```Join = function(id, collection ``` [join.common.js:48](join.common.js#L48)
+> ```Join = function(id, collection ``` [join.common.js:49](join.common.js#L49)
 
 ## <a name="Join.get"></a>Join.get()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
 Returns the joined document
@@ -63,7 +63,7 @@ var doc = bar.findOne();
 var fooDoc = bar.foo.get();
 ```
 
-> ```Join.prototype.get = function() { ...``` [join.common.js:91](join.common.js#L91)
+> ```Join.prototype.get = function() { ...``` [join.common.js:92](join.common.js#L92)
 
 ## <a name="Join.Collection"></a>new Join.Collection(name, options)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
 Create a Meteor collection add it to lookup register
@@ -80,7 +80,7 @@ As in the [Meteor documentation](http://docs.meteor.com/#meteor_collection)
 > collectionName. If we could do this in plain Meteor we did not have to
 > have this code..
 
-> ```Join.Collection = function(name, options) { ...``` [join.common.js:105](join.common.js#L105)
+> ```Join.Collection = function(name, options) { ...``` [join.common.js:106](join.common.js#L106)
 
 ## <a name="Join.Collection.join"></a>Join.Collection.join(id)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
 
@@ -98,7 +98,7 @@ var id = foo.insert({ title: 'hello foo'});
 bar.insert({ title: 'hello bar', foo: foo.join(id) });
 ```
 
-> ```self.join = function(id) { ...``` [join.common.js:129](join.common.js#L129)
+> ```self.join = function(id) { ...``` [join.common.js:130](join.common.js#L130)
 
 
 ---

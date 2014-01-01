@@ -80,6 +80,7 @@ Join.publish = function(name, f) {
     /** @method _publishJoin Make sure that the join document is published
       * @param {Join} join The join reference to publish
       * @private
+      *
       * > This function will check `_sessionJoins` to make sure that the data
       * > is not allready published.
       *

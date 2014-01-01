@@ -36,6 +36,7 @@ var _collections = {};
 
 /** Create a join between two collections
   * @method Join
+  * @namespace Join
   * @constructor
   * @ejsontype Join
   * @param {id|object} id|options document `id` or object `{_id, collectionName}`
