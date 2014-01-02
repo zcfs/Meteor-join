@@ -38,7 +38,7 @@ var _collections = {};
   * @method Join
   * @namespace Join
   * @constructor
-  * @ejsontype Join
+  * @ejsontype Join This is used when transporting over `ddp` and saving in `db`
   * @param {id|object} id|options document `id` or object `{_id, collectionName}`
   * @param {Join.Collection} [collection] Required if first parametre is `id`
   *

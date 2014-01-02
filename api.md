@@ -33,6 +33,7 @@ into a collection. Only these collections are accessible via joins
 
 ## <a name="Join"></a>new Join(id|options, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
 Create a join between two collections
+Adds custom EJSON-type: `Join` This is used when transporting over `ddp` and saving in `db`
 
 __Arguments__
 
@@ -42,7 +43,6 @@ document `id` or object `{_id, collectionName}`
 Required if first parametre is `id`
 
 -
-@ejsontype Join
 > `Join` is a custom `EJSON` type meaning that the object is converted
 > when the data is stored or transported. The reference contains
 > `{ _id, collectionName }`
