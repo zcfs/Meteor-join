@@ -48,7 +48,7 @@ _withEachJoin = function(obj, f) {
   * Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
   *
   * > Note: From a security view, the joined document will be published if
-  * > present in the published cursors. Only Join.Collection´s can be "auto" published
+  * > present in the published cursors. Only Join.Collection's can be "auto" published
   * > this way. We may add a view option for `allow`/`deny` for `Join.Collection`
   */
 Join.publish = function(name, f) {
