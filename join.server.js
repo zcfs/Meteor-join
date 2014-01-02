@@ -42,10 +42,9 @@ _withEachJoin = function(obj, f) {
 };
 
 /** Publish the cursors and make sure joined data is also published.
-  * @Join.publish Publish data, supports joins
+  * @method Join.publish Publish data, supports joins
   * @param {string} name Name of the publish
   * @param {function} f The actual publish function, returning cursor(s)
-  * @where {server}
   * Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
   *
   * > Note: From a security view, the joined document will be published if
@@ -77,7 +76,8 @@ Join.publish = function(name, f) {
       _sessionJoins[sessionId][name] = {};
     }
 
-    /** @method _publishJoin Make sure that the join document is published
+    /** Publish joined documents
+      * @method _publishJoin Make sure that the join document is published
       * @param {Join} join The join reference to publish
       * @private
       *
@@ -124,8 +124,10 @@ Join.publish = function(name, f) {
     };
 
 
-    /** @method _unPublishJoin Unpublish a joined document
+    /** Unpublish joined documents
+      * @method _unPublishJoin Unpublish a joined document
       * @param {[Join](#Join)} join The join to unpublish
+      *
       * This function will unpublish the joined document - but only if other
       * documents are not requring the data.
       * 

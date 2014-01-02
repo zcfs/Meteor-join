@@ -35,13 +35,13 @@ Below is the code documentation *produced by `docmeteor` cli tool*
 ´_collections´ is a collection pointer object for resolving collectionName
 into a collection. Only these collections are accessible via joins
 
-## <a name="Join"></a>new Join(id|options, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+## <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
 Create a join between two collections
 Adds custom EJSON-type: `Join` This is used when transporting over `ddp` and saving in `db`
 
 __Arguments__
 
-* __id|options__ *{id|object}*  
+* __id__ *{id}*  
 document `id` or object `{_id, collectionName}`
 * __collection__ *{Join.Collection}*    (Optional)
 Required if first parametre is `id`
@@ -154,7 +154,6 @@ _withEachJoin(document, function(join) {
 
 ## <a name="Join.publish"></a>Join.publish(name, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
 Publish the cursors and make sure joined data is also published.
-@Join.publish Publish data, supports joins
 
 __Arguments__
 
@@ -170,10 +169,11 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 * > published this way. We may add a `view` option for `allow`/`deny` for
 * > `Join.Collection`
 
-> ```Join.publish = function(name, f) { ...``` [join.server.js:56](join.server.js#L56)
+> ```Join.publish = function(name, f) { ...``` [join.server.js:55](join.server.js#L55)
 
 ## <a name="    _publishJoin"></a>    _publishJoin {any}&nbsp;&nbsp;<sub><i>Server</i></sub> ##
-@method _publishJoin Make sure that the join document is published
+Publish joined documents
+    * @method _publishJoin Make sure that the join document is published
     * @param {Join} join The join reference to publish
     * @private
     *
@@ -187,8 +187,10 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 > ```    _publishJoin = function(join) { ...``` [join.server.js:90](join.server.js#L90)
 
 ## <a name="    _unPublishJoin"></a>    _unPublishJoin {any}&nbsp;&nbsp;<sub><i>Server</i></sub> ##
-@method _unPublishJoin Unpublish a joined document
+Unpublish joined documents
+    * @method _unPublishJoin Unpublish a joined document
     * @param {[Join](#Join)} join The join to unpublish
+    *
     * This function will unpublish the joined document - but only if other
     * documents are not requring the data.
     * 
@@ -196,7 +198,7 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
     * > If count is 0 then we stop the handle and clean up memory
     
 
-> ```    _unPublishJoin = function(join) { ...``` [join.server.js:135](join.server.js#L135)
+> ```    _unPublishJoin = function(join) { ...``` [join.server.js:137](join.server.js#L137)
 
 
 ---
@@ -205,14 +207,16 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 
 -
 
-## <a name="Join.subscribe"></a>Join.subscribe(name, arg1, arg2 , [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ##
+## <a name="Join.subscribe"></a>Join.subscribe(name, [arg1,arg2-argn], [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ##
 Wrapper for `Meteor.subscribe` - Mostly for API consistency
 
 __Arguments__
 
 * __name__ *{string}*  
 Name of subscription
-* __arg1, arg2 __ *{object}*  * __callback__ *{function|object}*    (Optional)
+* __arg1,arg2-argn__ *{any}*    (Optional)
+Data to pass on to the publish
+* __callback__ *{function|object}*    (Optional)
 `{onError, onReady}` or `onReady` callback
 
 -
