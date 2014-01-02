@@ -32,7 +32,7 @@ Ideas, contributions, pull request and more are welcome,
 Kind regards Morten
 #Api
 Below is the code documentation *produced by `docmeteor` cli tool*
-´_collections´ is a collection pointer object for resolving collectionName
+`_collections` is a collection pointer object for resolving collectionName
 into a collection. Only these collections are accessible via joins
 
 ## <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
@@ -165,40 +165,59 @@ The actual publish function, returning cursor(s)
 -
 Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 > Note: From a security view, the joined document will be published if
-> present in the published cursors. Only `Join.Collection's` can be "auto"
-* > published this way. We may add a `view` option for `allow`/`deny` for
-* > `Join.Collection`
+> present in the published cursors. Only Join.Collection´s can be "auto" published
+> this way. We may add a view option for `allow`/`deny` for `Join.Collection`
 
-> ```Join.publish = function(name, f) { ...``` [join.server.js:55](join.server.js#L55)
+> ```Join.publish = function(name, f) { ...``` [join.server.js:54](join.server.js#L54)
 
-## <a name="    _publishJoin"></a>    _publishJoin {any}&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+-
+If _cursors are empty then quit - the user could be doing a custom
+publish like this one
+
+## <a name="_publishJoin"></a>_publishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
 Publish joined documents
-    * @method _publishJoin Make sure that the join document is published
-    * @param {Join} join The join reference to publish
-    * @private
-    *
-    * > This function will check `_sessionJoins` to make sure that the data
-    * > is not allready published.
-    *
-    * > Note: We could add the `view` (allow/deny) check here to make sure
-    * > that the data is allowed to be published.
-    
+*This method is private*
 
-> ```    _publishJoin = function(join) { ...``` [join.server.js:90](join.server.js#L90)
+__Arguments__
 
-## <a name="    _unPublishJoin"></a>    _unPublishJoin {any}&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+* __join__ *{Join}*  
+The join reference to publish
+
+-
+> This function will check `_sessionJoins` to make sure that the data
+> is not allready published.
+> Note: We could add the `view` (allow/deny) check here to make sure
+> that the data is allowed to be published.
+
+> ```_publishJoin = function(join) { ...``` [join.server.js:89](join.server.js#L89)
+
+## <a name="_unPublishJoin"></a>_unPublishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
 Unpublish joined documents
-    * @method _unPublishJoin Unpublish a joined document
-    * @param {[Join](#Join)} join The join to unpublish
-    *
-    * This function will unpublish the joined document - but only if other
-    * documents are not requring the data.
-    * 
-    * > We keep track of join handle usage via `count`
-    * > If count is 0 then we stop the handle and clean up memory
-    
 
-> ```    _unPublishJoin = function(join) { ...``` [join.server.js:137](join.server.js#L137)
+__Arguments__
+
+* __join__ *{[Join](#Join)}*  
+The join to unpublish
+
+-
+This function will unpublish the joined document - but only if other
+documents are not requring the data.
+> We keep track of join handle usage via `count`
+> If count is 0 then we stop the handle and clean up memory
+
+> ```_unPublishJoin = function(join) { ...``` [join.server.js:136](join.server.js#L136)
+
+-
+This publish should scan the documents and make sure to publish the joined
+data if found. Should it go deeper than one level?
+
+-
+By oberving the document changes we can keep track of joined documents
+to publish
+
+-
+EO Observe changes
+Push stop handle
 
 
 ---

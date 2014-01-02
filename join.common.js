@@ -30,7 +30,7 @@
 // #Api
 // Below is the code documentation *produced by `docmeteor` cli tool*
 
-// ´_collections´ is a collection pointer object for resolving collectionName
+// `_collections` is a collection pointer object for resolving collectionName
 // into a collection. Only these collections are accessible via joins
 var _collections = {};
 

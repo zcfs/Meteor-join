@@ -28,7 +28,7 @@ Ideas, contributions, pull request and more are welcome,
 Kind regards Morten
 #Api
 Below is the code documentation *produced by `docmeteor` cli tool*
-´_collections´ is a collection pointer object for resolving collectionName
+`_collections` is a collection pointer object for resolving collectionName
 into a collection. Only these collections are accessible via joins
 
 ## <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
@@ -116,12 +116,26 @@ The actual publish function, returning cursor(s)
 -
 Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 > Note: From a security view, the joined document will be published if
-> present in the published cursors. Only `Join.Collection's` can be "auto"
- * > published this way. We may add a `view` option for `allow`/`deny` for
- * > `Join.Collection`
- 
+> present in the published cursors. Only Join.Collection´s can be "auto" published
+> this way. We may add a view option for `allow`/`deny` for `Join.Collection`
 
-> ```Join.publish = function(name, f) { ...``` [join.server.js:55](join.server.js#L55)
+> ```Join.publish = function(name, f) { ...``` [join.server.js:54](join.server.js#L54)
+
+-
+If _cursors are empty then quit - the user could be doing a custom
+publish like this one
+
+-
+This publish should scan the documents and make sure to publish the joined
+data if found. Should it go deeper than one level?
+
+-
+By oberving the document changes we can keep track of joined documents
+to publish
+
+-
+EO Observe changes
+Push stop handle
 
 
 ---
