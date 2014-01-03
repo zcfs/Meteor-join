@@ -35,8 +35,9 @@ Below is the code documentation *produced by `docmeteor` cli tool*
 `_collections` is a collection pointer object for resolving collectionName
 into a collection. Only these collections are accessible via joins
 
-## <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+#### <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
 Create a join between two collections
+-
 Adds custom EJSON-type: `Join` This is used when transporting over `ddp` and saving in `db`
 
 __Arguments__
@@ -53,7 +54,10 @@ Required if first parametre is `id`
 
 > ```Join = function(id, collection ``` [join.common.js:49](join.common.js#L49)
 
-## <a name="Join.get"></a>Join.get()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+-
+
+#### <a name="Join.get"></a>Join.get()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+-
 Returns the joined document
 Usage:
 ```js
@@ -69,8 +73,11 @@ var fooDoc = bar.foo.get();
 
 > ```Join.prototype.get = function() { ...``` [join.common.js:92](join.common.js#L92)
 
-## <a name="Join.Collection"></a>new Join.Collection(name, options)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+-
+
+#### <a name="Join.Collection"></a>new Join.Collection(name, options)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
 Create a Meteor collection add it to lookup register
+-
 
 __Arguments__
 
@@ -86,7 +93,10 @@ As in the [Meteor documentation](http://docs.meteor.com/#meteor_collection)
 
 > ```Join.Collection = function(name, options) { ...``` [join.common.js:106](join.common.js#L106)
 
-## <a name="Join.Collection.join"></a>Join.Collection.join(id)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+-
+
+#### <a name="Join.Collection.join"></a>Join.Collection.join(id)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+-
 
 __Arguments__
 
@@ -104,6 +114,8 @@ bar.insert({ title: 'hello bar', foo: foo.join(id) });
 
 > ```self.join = function(id) { ...``` [join.common.js:130](join.common.js#L130)
 
+-
+
 
 ---
 > File: ["join.server.js"](join.server.js)
@@ -111,7 +123,7 @@ bar.insert({ title: 'hello bar', foo: foo.join(id) });
 
 -
 
-## <a name="_sessionJoins"></a>_sessionJoins {any}&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+#### <a name="_sessionJoins"></a>_sessionJoins {any}&nbsp;&nbsp;<sub><i>Server</i></sub> ####
 Make sure we dont publish or unpublished joins
 Overview of the `_sessionJoins` structure:
 ```js
@@ -129,10 +141,14 @@ _sessionJoins = {
 We use this object to keep track of join publications making sure they are
 only active if needed. If count gets to 0 the handle is stopped and the
 publish reference is removed.
+-
 
 > ```_sessionJoins = { ...``` [join.server.js:19](join.server.js#L19)
 
-## <a name="_withEachJoin"></a>_withEachJoin(obj, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+-
+
+#### <a name="_withEachJoin"></a>_withEachJoin(obj, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
+-
 
 __Arguments__
 
@@ -152,8 +168,11 @@ _withEachJoin(document, function(join) {
 
 > ```_withEachJoin = function(obj, f) { ...``` [join.server.js:32](join.server.js#L32)
 
-## <a name="Join.publish"></a>Join.publish(name, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+-
+
+#### <a name="Join.publish"></a>Join.publish(name, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
 Publish the cursors and make sure joined data is also published.
+-
 
 __Arguments__
 
@@ -171,11 +190,14 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 > ```Join.publish = function(name, f) { ...``` [join.server.js:54](join.server.js#L54)
 
 -
+
+-
 If _cursors are empty then quit - the user could be doing a custom
 publish like this one
 
-## <a name="_publishJoin"></a>_publishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+#### <a name="_publishJoin"></a>_publishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
 Publish joined documents
+-
 *This method is private*
 
 __Arguments__
@@ -191,8 +213,11 @@ The join reference to publish
 
 > ```_publishJoin = function(join) { ...``` [join.server.js:89](join.server.js#L89)
 
-## <a name="_unPublishJoin"></a>_unPublishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+-
+
+#### <a name="_unPublishJoin"></a>_unPublishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
 Unpublish joined documents
+-
 
 __Arguments__
 
@@ -206,6 +231,8 @@ documents are not requring the data.
 > If count is 0 then we stop the handle and clean up memory
 
 > ```_unPublishJoin = function(join) { ...``` [join.server.js:136](join.server.js#L136)
+
+-
 
 -
 This publish should scan the documents and make sure to publish the joined
@@ -226,8 +253,9 @@ Push stop handle
 
 -
 
-## <a name="Join.subscribe"></a>Join.subscribe(name, [arg1,arg2-argn], [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ##
+#### <a name="Join.subscribe"></a>Join.subscribe(name, [arg1,arg2-argn], [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ####
 Wrapper for `Meteor.subscribe` - Mostly for API consistency
+-
 
 __Arguments__
 
@@ -242,3 +270,5 @@ Data to pass on to the publish
 For more info checkout the [Meteor documentation](http://docs.meteor.com/#meteor_subscribe)
 
 > ```Join.subscribe = function(``` [join.client.js:10](join.client.js#L10)
+
+-

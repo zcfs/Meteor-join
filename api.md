@@ -31,8 +31,9 @@ Below is the code documentation *produced by `docmeteor` cli tool*
 `_collections` is a collection pointer object for resolving collectionName
 into a collection. Only these collections are accessible via joins
 
-## <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+#### <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
 Create a join between two collections
+-
 Adds custom EJSON-type: `Join` This is used when transporting over `ddp` and saving in `db`
 
 __Arguments__
@@ -49,7 +50,10 @@ Required if first parametre is `id`
 
 > ```Join = function(id, collection ``` [join.common.js:49](join.common.js#L49)
 
-## <a name="Join.get"></a>Join.get()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+-
+
+#### <a name="Join.get"></a>Join.get()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+-
 Returns the joined document
 Usage:
 ```js
@@ -65,8 +69,11 @@ var fooDoc = bar.foo.get();
 
 > ```Join.prototype.get = function() { ...``` [join.common.js:92](join.common.js#L92)
 
-## <a name="Join.Collection"></a>new Join.Collection(name, options)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+-
+
+#### <a name="Join.Collection"></a>new Join.Collection(name, options)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
 Create a Meteor collection add it to lookup register
+-
 
 __Arguments__
 
@@ -82,7 +89,10 @@ As in the [Meteor documentation](http://docs.meteor.com/#meteor_collection)
 
 > ```Join.Collection = function(name, options) { ...``` [join.common.js:106](join.common.js#L106)
 
-## <a name="Join.Collection.join"></a>Join.Collection.join(id)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ##
+-
+
+#### <a name="Join.Collection.join"></a>Join.Collection.join(id)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+-
 
 __Arguments__
 
@@ -100,11 +110,14 @@ bar.insert({ title: 'hello bar', foo: foo.join(id) });
 
 > ```self.join = function(id) { ...``` [join.common.js:130](join.common.js#L130)
 
+-
+
 
 ---
 
-## <a name="Join.publish"></a>Join.publish(name, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ##
+#### <a name="Join.publish"></a>Join.publish(name, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
 Publish the cursors and make sure joined data is also published.
+-
 
 __Arguments__
 
@@ -120,6 +133,8 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 > this way. We may add a view option for `allow`/`deny` for `Join.Collection`
 
 > ```Join.publish = function(name, f) { ...``` [join.server.js:54](join.server.js#L54)
+
+-
 
 -
 If _cursors are empty then quit - the user could be doing a custom
@@ -140,8 +155,9 @@ Push stop handle
 
 ---
 
-## <a name="Join.subscribe"></a>Join.subscribe(name, [arg1,arg2-argn], [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ##
+#### <a name="Join.subscribe"></a>Join.subscribe(name, [arg1,arg2-argn], [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ####
 Wrapper for `Meteor.subscribe` - Mostly for API consistency
+-
 
 __Arguments__
 
@@ -156,3 +172,5 @@ Data to pass on to the publish
 For more info checkout the [Meteor documentation](http://docs.meteor.com/#meteor_subscribe)
 
 > ```Join.subscribe = function(``` [join.client.js:10](join.client.js#L10)
+
+-
