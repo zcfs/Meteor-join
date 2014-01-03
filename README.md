@@ -19,7 +19,7 @@ Security note:
 > Use this with caution, any `Join.Collection` will be auto published as needed
 > This makes the data in a `Join.Collection` viewable to anyone.
 
-> We could solve this by implementing a `view` option to `allow`/`deny` rules
+> We could solve this by implementing a `join` option to `allow`/`deny` rules
 > for a `Join.Collection`.
 
 ###Contributions
