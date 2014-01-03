@@ -74,7 +74,7 @@ Join.prototype.cursor = function() {
   return self.collection.find({ _id: self._id });
 };
 
-/** @method Join.get
+/** @method Join.fetch
   * Returns the joined document
   * Usage:
 ```js
@@ -84,12 +84,12 @@ Join.prototype.cursor = function() {
   bar.insert({ title: 'hello bar', foo: foo.join(id) });
   // ...
   var doc = bar.findOne();
-  // Get the joined foo document:
-  var fooDoc = bar.foo.get();
+  // Fetch the joined foo document:
+  var fooDoc = bar.foo.fetch();
 ```
   */
 // Return document from the collection
-Join.prototype.get = function() {
+Join.prototype.fetch = function(returnSelf) {
   return this.collection.findOne({ _id: this._id });
 };
 

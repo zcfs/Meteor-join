@@ -3,7 +3,7 @@
   "description": "Join documents cross collections",
   "homepage": "https://github.com/CollectionFS/Meteor-join",
   "author": "Morten Henriksen  (http://gi-software.com)",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "git": "https://github.com/CollectionFS/Meteor-join.git",
   "packages": {
   }
