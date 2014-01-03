@@ -191,10 +191,6 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 
 -
 
--
-If _cursors are empty then quit - the user could be doing a custom
-publish like this one
-
 #### <a name="_publishJoin"></a>_publishJoin(join)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
 Publish joined documents
 -
@@ -233,18 +229,6 @@ documents are not requring the data.
 > ```_unPublishJoin = function(join) { ...``` [join.server.js:136](join.server.js#L136)
 
 -
-
--
-This publish should scan the documents and make sure to publish the joined
-data if found. Should it go deeper than one level?
-
--
-By oberving the document changes we can keep track of joined documents
-to publish
-
--
-EO Observe changes
-Push stop handle
 
 
 ---

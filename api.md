@@ -136,22 +136,6 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 
 -
 
--
-If _cursors are empty then quit - the user could be doing a custom
-publish like this one
-
--
-This publish should scan the documents and make sure to publish the joined
-data if found. Should it go deeper than one level?
-
--
-By oberving the document changes we can keep track of joined documents
-to publish
-
--
-EO Observe changes
-Push stop handle
-
 
 ---
 
