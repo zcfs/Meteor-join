@@ -32,7 +32,9 @@ Below is the code documentation *produced by `docmeteor` cli tool*
 into a collection. Only these collections are accessible via joins
 
 #### <a name="Join"></a>new Join(id, [collection])&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+```
 Create a join between two collections
+```
 -
 Adds custom EJSON-type: `Join` This is used when transporting over `ddp` and saving in `db`
 
@@ -72,7 +74,9 @@ var fooDoc = bar.foo.fetch();
 -
 
 #### <a name="Join.Collection"></a>new Join.Collection(name, options)&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+```
 Create a Meteor collection add it to lookup register
+```
 -
 
 __Arguments__
@@ -116,7 +120,9 @@ bar.insert({ title: 'hello bar', foo: foo.join(id) });
 ---
 
 #### <a name="Join.publish"></a>Join.publish(name, f)&nbsp;&nbsp;<sub><i>Server</i></sub> ####
+```
 Publish the cursors and make sure joined data is also published.
+```
 -
 
 __Arguments__
@@ -140,7 +146,9 @@ Check out the [Meteor documentation](http://docs.meteor.com/#meteor_publish)
 ---
 
 #### <a name="Join.subscribe"></a>Join.subscribe(name, [arg1,arg2-argn], [callback])&nbsp;&nbsp;<sub><i>Client</i></sub> ####
+```
 Wrapper for `Meteor.subscribe` - Mostly for API consistency
+```
 -
 
 __Arguments__
