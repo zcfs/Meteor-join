@@ -56,7 +56,7 @@ Required if first parametre is `id`
 
 -
 
-#### <a name="Join.get"></a>Join.get()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
+#### <a name="Join.fetch"></a>Join.fetch()&nbsp;&nbsp;<sub><i>Anywhere</i></sub> ####
 -
 Returns the joined document
 Usage:
@@ -67,11 +67,11 @@ var id = foo.insert({ title: 'hello foo'});
 bar.insert({ title: 'hello bar', foo: foo.join(id) });
 // ...
 var doc = bar.findOne();
-// Get the joined foo document:
-var fooDoc = bar.foo.get();
+// Fetch the joined foo document:
+var fooDoc = bar.foo.fetch();
 ```
 
-> ```Join.prototype.get = function() { ...``` [join.common.js:92](join.common.js#L92)
+> ```Join.prototype.fetch = function(returnSelf) { ...``` [join.common.js:92](join.common.js#L92)
 
 -
 
